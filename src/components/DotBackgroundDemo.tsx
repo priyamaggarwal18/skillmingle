@@ -106,11 +106,11 @@ export function DotBackgroundDemo() {
         </ContainerScroll>
 {/* Team Section */}
 <section className="py-20">
-            <div id="team" className="max-w-4xl mx-auto px-4 text-center">
-              <h2 className="text-5xl font-bold mb-20">
+            <div id="team" className="max-w-6xl mx-auto px-4 text-center">
+              <h2 className="text-7xl font-bold mb-20">
                 Meet the Team
               </h2>
-              <div className="flex flex-wrap justify-center gap-10 scale-150">
+              <div className="flex flex-wrap justify-center gap-2 scale-150">
                 {people.map((person) => (
                   <a
                     key={person.id}
