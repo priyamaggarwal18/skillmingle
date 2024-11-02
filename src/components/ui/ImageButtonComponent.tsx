@@ -1,6 +1,7 @@
 "use client"; // Ensure this component is rendered on the client side
 import React from "react";
 import Image from 'next/image';
+import { FaSun, FaMoon } from 'react-icons/fa'; // Importing icons from react-icons
 
 export function ImageButtonComponent({ isDarkMode, toggleDarkMode }) {
   return (
@@ -14,17 +15,16 @@ export function ImageButtonComponent({ isDarkMode, toggleDarkMode }) {
           layout="responsive"
           width={50}
           height={50} // Replace with actual width
-
           priority
         />
       </div>
 
-      {/* Right Side: Button */}
+      {/* Right Side: Round Icon Button */}
       <button
         onClick={toggleDarkMode}
-        className={`ml-4 p-2 rounded-md ${isDarkMode ? 'bg-gray-700' : 'bg-blue-500'} text-white`}
+        className={`ml-4 p-2 rounded-full flex items-center justify-center ${isDarkMode ? 'bg-gray-700' : 'bg-black'} text-white transition duration-300 hover:bg-gray-600`}
       >
-        {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        {isDarkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
       </button>
     </div>
   );
