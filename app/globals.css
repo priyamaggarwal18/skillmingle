@@ -18,9 +18,62 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Marquee left-to-right (rightward scroll) */
+@keyframes marquee-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Standard marquee left-to-right (leftward scroll) */
+@keyframes marquee-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-left var(--duration) linear infinite;
+}
+
+/* Reverse marquee for right-to-left (rightward scroll) */
+@keyframes marquee-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-right var(--duration) linear infinite;
+}
+
+/* Vertical marquee */
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
 }
 
