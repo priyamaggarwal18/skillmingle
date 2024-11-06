@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { ContainerScroll } from "./ui/container-scroll-animation"
 import demo from "../../public/demo.png"
-import { ImageButtonComponent } from "./ui/ImageButtonComponent"
+import { darkButton } from "./ui/darkButton"
 import { AnimatedTooltip } from "./ui/team"
 import Footer from "./ui/footer"
 import Marquee from "./ui/slider"
@@ -44,11 +44,11 @@ export function DotBackgroundDemo() {
         isDarkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"
       } backdrop-blur-md`}>
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0">
+          <div className="flex items-center justify-between h-16 ">
+            <div className="flex-shrink-0 mr-18">
               <span className="text-2xl font-bold">SkillMingle</span>
             </div>
-            <nav className="hidden md:block">
+            <nav className="hidden md:block pl-20">
               <ul className="flex space-x-10">
                 {["Home", "Features", "Reviews", "Team", "Contact"].map((item) => (
                   <li key={item}>
@@ -60,6 +60,7 @@ export function DotBackgroundDemo() {
               </ul>
             </nav>
             <div className="flex items-center space-x-4">
+              {darkButton({ isDarkMode, toggleDarkMode })}
               <Button className="hover:text-gray-200">Sign Up</Button>
               <Button className="bg-blue-700 hover:bg-blue-600">Start Free Trial</Button>
             </div>

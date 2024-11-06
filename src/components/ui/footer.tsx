@@ -101,7 +101,7 @@ const Footer = () => {
             {/* Copyright Section */}
             <div className="mt-8 border-t border-border/40 pt-4 md:pt-8 flex items-center justify-center w-full"> 
                 <p className="text-sm text-muted-foreground mt-8 md:mt-0">
-                    &copy; {new Date().getFullYear()} IEEE CIET All rights reserved.
+                    &copy; 2024 IEEE CIET All rights reserved.
                 </p>
             </div>
 
