@@ -118,7 +118,7 @@ export function DotBackgroundDemo() {
 
         {/* Meet the Team Section */}
         <section className="w-full h-full my-20">
-          <div id="team" className="max-w-6xl mx-auto px-4 text-center">
+          <div id="team" className="max-w-7xl mx-auto  my-10 px-4 text-center">
             <h2 className="text-7xl font-bold mb-20">Meet the Team</h2>
             <div className="flex flex-wrap justify-center gap-2 scale-150">
               {people.map((person) => (
