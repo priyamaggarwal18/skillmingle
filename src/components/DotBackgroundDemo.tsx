@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { ContainerScroll } from "./ui/container-scroll-animation"
+import { FeaturesSectionDemo } from "./ui/feature"
 import demo from "../../public/demo.png"
 import { darkButton } from "./ui/darkButton"
 import { AnimatedTooltip } from "./ui/team"
@@ -71,14 +72,22 @@ export function DotBackgroundDemo() {
       <div className={`h-full w-full flex flex-col items-center justify-center transition-all duration-300 ${isDarkMode ? "bg-black text-white bg-dot-white/[0.2]" : "bg-white text-black bg-dot-black/[0.2]"}`}>
         
         
-        <ContainerScroll titleComponent="Collaboration">
+        <ContainerScroll titleComponent={<span className="text-blue-500">Collaboration</span>}>
           <Image src={demo} alt="My Logo" className="h-full w-full object-cover" />
         </ContainerScroll>
+
+        {/* Features Section */}
+        <section id="features" className="w-full h-full my-10">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-7xl font-bold">Features</h2>
+              <FeaturesSectionDemo />
+          </div>
+        </section>
 
         {/* Marquee Section */}
         <div id="review" className="py-10 md:py-20 w-full mb-10">
           <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden py-10">
-          <h2 className="text-6xl font-bold mb-20">What Our Customers say</h2>
+          <h2 className="text-6xl font-bold mb-20">What Our <span className="text-blue-500">Customers</span> say</h2>
             {/* Upper Marquee - Scrolls Right */}
             <Marquee reverse={true} pauseOnHover className="[--duration:20s] select-none">
               {firstRow.map((review, i) => (
@@ -88,7 +97,7 @@ export function DotBackgroundDemo() {
                   "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
                   isDarkMode 
                     ? "bg-white text-black border-zinc-50/[.1] over:bg-zinc-50/[.15]" 
-                    : "bg-black text-white border-gray-700"
+                    : "bg-blue-500 text-white border-gray-700"
                 )}
               >
                 <div className="flex flex-row items-center gap-2">
@@ -112,7 +121,7 @@ export function DotBackgroundDemo() {
                   "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
                   isDarkMode 
                     ? "bg-white text-black border-zinc-50/[.1] over:bg-zinc-50/[.15]" 
-                    : "bg-black text-white border-gray-700"
+                    : "bg-blue-500 text-white border-gray-700"
                 )}
               >
                 <div className="flex flex-row items-center gap-2">
@@ -135,7 +144,8 @@ export function DotBackgroundDemo() {
         {/* Meet the Team Section */}
         <section className="w-full h-full my-20">
           <div id="team" className="max-w-7xl mx-auto  my-10 px-4 text-center">
-            <h2 className="text-7xl font-bold mb-20">Meet the Team</h2>
+            <h2 className="text-7xl font-bold mb-20">Meet the <span className="text-blue-500">Team</span>
+            </h2>
             <div className="flex flex-wrap justify-center gap-2 scale-150">
               {people.map((person) => (
                 <a key={person.id} href={person.link} target="_blank" rel="noopener noreferrer">
