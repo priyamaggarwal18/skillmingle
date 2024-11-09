@@ -47,7 +47,7 @@ export function DotBackgroundDemo() {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 ">
             <div className="flex-shrink-0 mr-18">
-              <span className="text-2xl font-bold">SkillMingle</span>
+              <h4 className="text-2xl font-bold">Skill <span className="text-violet-700">Mingle</span></h4>
             </div>
             <nav className="hidden md:block pl-20">
               <ul className="flex space-x-10">
@@ -62,17 +62,19 @@ export function DotBackgroundDemo() {
             </nav>
             <div className="flex items-center space-x-4">
               {darkButton({ isDarkMode, toggleDarkMode })}
-              <Button className="hover:text-gray-200">Sign Up</Button>
-              <Button className="bg-blue-700 hover:bg-blue-600">Start Free Trial</Button>
+              <Button className="border-2 border-violet-800 text-buttons-primary py-2 px-6 rounded-md hover:text-gray-200 transition-all">
+                Sign Up
+              </Button>
+              <Button className={`transition-all duration-300 ${isDarkMode ? 'bg-violet-600 text-white' : 'bg-violet-600 text-white'}`}>Start Free Trial</Button>
             </div>
           </div>
         </div>
       </header>
 
-      <div className={`h-full w-full flex flex-col items-center justify-center transition-all duration-300 ${isDarkMode ? "bg-black text-white bg-dot-white/[0.2]" : "bg-white text-black bg-dot-black/[0.2]"}`}>
+      <div className={`h-full w-full flex flex-col items-center justify-center transition-all duration-300 ${isDarkMode ? "bg-dark-purple-gradient from-[#B9AEDF] to-[#1A1A32] text-white " : "bg-white text-black bg-dot-black/[0.2]"}`}>
         
         
-        <ContainerScroll titleComponent={<span className="text-blue-500">Collaboration</span>}>
+        <ContainerScroll titleComponent={<span className="text-violet-700  bg-opacity-75 px-4 rounded-lg">Collaboration</span>}>
           <Image src={demo} alt="My Logo" className="h-full w-full object-cover" />
         </ContainerScroll>
 
@@ -80,14 +82,13 @@ export function DotBackgroundDemo() {
         <section id="features" className="w-full h-full my-10">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-7xl font-bold">Features</h2>
-              <FeaturesSectionDemo />
           </div>
         </section>
 
         {/* Marquee Section */}
         <div id="review" className="py-10 md:py-20 w-full mb-10">
-          <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden py-10">
-          <h2 className="text-6xl font-bold mb-20">What Our <span className="text-blue-500">Customers</span> say</h2>
+          <div className="relative flex h-full w-ull flex-col items-center justify-center overflow-hidden py-10">
+          <h2 className="text-6xl font-bold mb-20">What Our <span className="text-violet-700">Customers</span> say</h2>
             {/* Upper Marquee - Scrolls Right */}
             <Marquee reverse={true} pauseOnHover className="[--duration:20s] select-none">
               {firstRow.map((review, i) => (
@@ -97,7 +98,7 @@ export function DotBackgroundDemo() {
                   "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
                   isDarkMode 
                     ? "bg-white text-black border-zinc-50/[.1] over:bg-zinc-50/[.15]" 
-                    : "bg-blue-500 text-white border-gray-700"
+                    : "bg-violet-500 text-white border-gray-700"
                 )}
               >
                 <div className="flex flex-row items-center gap-2">
@@ -121,7 +122,7 @@ export function DotBackgroundDemo() {
                   "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
                   isDarkMode 
                     ? "bg-white text-black border-zinc-50/[.1] over:bg-zinc-50/[.15]" 
-                    : "bg-blue-500 text-white border-gray-700"
+                    : "bg-violet-400 text-white border-gray-700"
                 )}
               >
                 <div className="flex flex-row items-center gap-2">
@@ -136,15 +137,13 @@ export function DotBackgroundDemo() {
               ))}
             </Marquee>
 
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background"></div>
           </div>
         </div>
 
         {/* Meet the Team Section */}
         <section className="w-full h-full my-20">
           <div id="team" className="max-w-7xl mx-auto  my-10 px-4 text-center">
-            <h2 className="text-7xl font-bold mb-20">Meet the <span className="text-blue-500">Team</span>
+            <h2 className="text-7xl font-bold mb-20">Meet the <span className="text-violet-600">Team</span>
             </h2>
             <div className="flex flex-wrap justify-center gap-2 scale-150">
               {people.map((person) => (

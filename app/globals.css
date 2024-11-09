@@ -34,12 +34,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background:  #1D4ED8; /* Scrollbar handle color */
+  background:  #7C3AED; /* Scrollbar handle color */
   border-radius: 10px; /* Rounded corners for handle */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563EB; /* Darker handle on hover */
+  background: #5B21B6; /* Darker handle on hover */
 }
 
 /* Marquee left-to-right (rightward scroll) */
