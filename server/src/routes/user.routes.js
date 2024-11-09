@@ -8,7 +8,6 @@ const router = express.Router();
 // Auth routes
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);
-router.post('/refresh-token', UserController.refreshToken);
 router.post('/logout', verifyToken, UserController.logout);
 
 // // Profile routes

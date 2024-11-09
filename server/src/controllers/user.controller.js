@@ -2,20 +2,12 @@ import User from '../models/user.model.js';
 import jwt from 'jsonwebtoken';
 import env from "../db/ValidateEnv.js";
 
-// Utility Functions
-const generateAccessToken = (user) => {
+// Utility Function - Single token generation
+const generateToken = (user) => {
     return jwt.sign(
         { id: user._id, role: user.role },
-        env.ACCESS_TOKEN_SECRET,
-        { expiresIn: '15m' }
-    );
-};
-
-const generateRefreshToken = (user) => {
-    return jwt.sign(
-        { id: user._id },
-        env.REFRESH_TOKEN_SECRET,
-        { expiresIn: '7d' }
+        env.JWT_SECRET,
+        { expiresIn: '24h' } // Increased expiry time since we're using single token
     );
 };
 
@@ -44,13 +36,8 @@ const register = async (req, res) => {
 
         await user.save();
 
-        // Generate tokens
-        const accessToken = generateAccessToken(user);
-        const refreshToken = generateRefreshToken(user);
-
-        // Save refresh token
-        user.refreshToken = refreshToken;
-        await user.save();
+        // Generate token
+        const token = generateToken(user);
 
         // Remove sensitive data
         const userProfile = user.getPublicProfile();
@@ -60,8 +47,7 @@ const register = async (req, res) => {
             message: 'User registered successfully',
             data: {
                 user: userProfile,
-                accessToken,
-                refreshToken
+                token
             }
         });
     } catch (error) {
@@ -98,13 +84,12 @@ const login = async (req, res) => {
             });
         }
 
-        // Generate tokens
-        const accessToken = generateAccessToken(user);
-        const refreshToken = generateRefreshToken(user);
+        // Generate token
+        const token = generateToken(user);
 
-        // Update refresh token and last active
-        user.refreshToken = refreshToken;
+        // Update last active
         user.lastActive = new Date();
+        user.status = 'active';
         await user.save();
 
         res.status(200).json({
@@ -112,62 +97,13 @@ const login = async (req, res) => {
             message: 'Login successful',
             data: {
                 user: user.getPublicProfile(),
-                accessToken,
-                refreshToken
+                token
             }
         });
     } catch (error) {
         res.status(500).json({
             success: false,
             message: 'Internal server error',
-            error: error.message
-        });
-    }
-};
-
-const refreshToken = async (req, res) => {
-    try {
-        const { refreshToken: token } = req.body;
-        if (!token) {
-            return res.status(400).json({
-                success: false,
-                message: 'Refresh token is required',
-                data: null
-            });
-        }
-
-        // Verify refresh token
-        const decoded = jwt.verify(token, env.REFRESH_TOKEN_SECRET);
-        const user = await User.findById(decoded.id);
-
-        if (!user || user.refreshToken !== token) {
-            return res.status(401).json({
-                success: false,
-                message: 'Invalid refresh token',
-                data: null
-            });
-        }
-
-        // Generate new tokens
-        const accessToken = generateAccessToken(user);
-        const newRefreshToken = generateRefreshToken(user);
-
-        // Update refresh token
-        user.refreshToken = newRefreshToken;
-        await user.save();
-
-        res.status(200).json({
-            success: true,
-            message: 'Token refreshed successfully',
-            data: {
-                accessToken,
-                refreshToken: newRefreshToken
-            }
-        });
-    } catch (error) {
-        res.status(401).json({
-            success: false,
-            message: 'Invalid token',
             error: error.message
         });
     }
@@ -184,8 +120,6 @@ const logout = async (req, res) => {
             });
         }
 
-        user.refreshToken = null;
-        user.socketId = null;
         user.status = 'inactive';
         await user.save();
 
@@ -277,7 +211,6 @@ const updateStatus = async (req, res) => {
 export default {
     register,
     login,
-    refreshToken,
     logout,
     updateProfile,
     updateStatus
