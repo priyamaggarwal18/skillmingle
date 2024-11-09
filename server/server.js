@@ -1,5 +1,5 @@
 import app from "./app.js";
-import env from "./src/utils/ValidateEnv.js";
+import env from "./src/db/ValidateEnv.js";
 import connectDB from "./src/db/config.js";
 
 const PORT = env.PORT;
