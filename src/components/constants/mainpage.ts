@@ -68,3 +68,25 @@ export const people = [
         body: "I'm at a loss for words. This is amazing. I love it.",
     },
 ];
+
+export const testimonialsData = [
+  {
+    quote: "This is the best product I've ever used. Highly recommend!",
+    name: "John Doe",
+    designation: "CEO, Company A",
+    src: "/images/john.jpg", // Image path
+  },
+  {
+    quote: "Amazing experience! The customer service was top-notch.",
+    name: "Jane Smith",
+    designation: "Marketing Head, Company B",
+    src: "/images/jane.jpg",
+  },
+  {
+    quote: "I'm very happy with my purchase. Great value for money.",
+    name: "Alice Brown",
+    designation: "Product Manager, Company C",
+    src: "/images/alice.jpg",
+  },
+  // Add more testimonials as needed
+];

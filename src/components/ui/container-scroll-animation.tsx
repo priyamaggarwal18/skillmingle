@@ -1,13 +1,14 @@
-"use client";
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
 export const ContainerScroll = ({
   titleComponent,
   children,
+  isDarkMode, // Add isDarkMode prop
 }: {
   titleComponent: string | React.ReactNode;
   children: React.ReactNode;
+  isDarkMode: boolean; // Specify type for isDarkMode
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -46,7 +47,7 @@ export const ContainerScroll = ({
         }}
       >
         <Header translate={translate} titleComponent={titleComponent} />
-        <Card rotate={rotate} translate={translate} scale={scale}>
+        <Card rotate={rotate} translate={translate} scale={scale} isDarkMode={isDarkMode}>
           {children}
         </Card>
       </div>
@@ -60,7 +61,7 @@ export const Header = ({ translate, titleComponent }: any) => {
       style={{
         translateY: translate,
       }}
-      className="div max-w-6xl mx-auto text-center font-bold text-8xl pb-[0.8rem]"
+      className="div max-w-6xl mx-auto text-center font-bold text-8xl pb-12"
     >
       <span className="mx-auto text-center font-bold text-8xl ">Empowering Ideas Through </span>
       {titleComponent}
@@ -72,21 +73,24 @@ export const Card = ({
   rotate,
   scale,
   children,
+  isDarkMode, // Accept isDarkMode prop
 }: {
   rotate: MotionValue<number>;
   scale: MotionValue<number>;
   translate: MotionValue<number>;
   children: React.ReactNode;
+  isDarkMode: boolean; // Specify type for isDarkMode
 }) => {
   return (
     <motion.div
       style={{
         rotateX: rotate,
         scale,
-        boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
+        boxShadow: isDarkMode
+          ? "10px 10px 25px 5px rgba(124, 58, 237, 0.7), 0 0 50px 15px rgba(124, 58, 237, 0.5), 0 0 100px 30px rgba(124, 58, 237, 0.3)"
+          : "10px 10px 5px 0px #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-black rounded-[30px] shadow-2xl"
+      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
       <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4">
         {children}
