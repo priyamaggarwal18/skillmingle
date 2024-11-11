@@ -20,9 +20,6 @@ module.exports = {
           300: "#AD49E1",  // Light purple
           200: "#EBD3F8",  // Light lavender
         },
-        button: {
-          primary: '#6a4c9c',
-        },
       }
 ,      
       backgroundImage: {
@@ -31,6 +28,7 @@ module.exports = {
         'gradient-teal-gray': `linear-gradient(45deg, #64CCC5, #EEEEEE)`,
         'gradient-full': `linear-gradient(45deg, #053B50, #176B87, #64CCC5, #EEEEEE)`,
         'dark-purple-gradient': 'linear-gradient(135deg, #0a0018, #000000)',
+        'font-background' : 'linear-gradient(310.6deg, rgba(100, 0, 233, 0.94) 6.8%, rgba(166, 0, 188, 0.66) 57.8%)'
       },
       
     },

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ContainerScroll } from "./ui/container-scroll-animation";
-import { FeaturesSectionDemo } from "./ui/feature";
 import demo from "../../public/demo.png";
 import { darkButton } from "./ui/darkButton";
 import { AnimatedTooltip } from "./ui/team";
@@ -79,8 +78,8 @@ export function DotBackgroundDemo() {
               <Button
                 className={`transition-all duration-300 ${
                   isDarkMode
-                    ? "bg-violet-600 text-white"
-                    : "bg-violet-600 text-white"
+                    ? "bg-violet-600 hover:bg-violet-500 text-white"
+                    : "bg-violet-600 hover:bg-violet-500 text-white"
                 }`}
               >
                 Start Free Trial
@@ -102,7 +101,7 @@ export function DotBackgroundDemo() {
             <FlipWords
             words={["Collaboration.", "Teamwork.", "Partnership.", "Technology."]}
             duration={3000} // 2 seconds duration for each word
-            className="text-violet-500" // Apply a custom text color
+            className="text-violet-600" // Apply a custom text color
           />
           }
           isDarkMode={isDarkMode} // Pass isDarkMode from parent component
@@ -126,7 +125,7 @@ export function DotBackgroundDemo() {
         <div id="review" className="py-10 md:py-20 w-full mb-10">
           <div className="relative flex h-full w-ull flex-col items-center justify-center overflow-hidden py-10">
             <h2 className="text-6xl font-bold mb-20">
-              What Our <span className="text-violet-700">Customers</span> say
+              What Our <span className="text-violet-600">Customers</span> say
             </h2>
             {/* Upper Marquee - Scrolls Right */}
             <Marquee

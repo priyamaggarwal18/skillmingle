@@ -71,22 +71,24 @@ export const people = [
 
 export const testimonialsData = [
   {
-    quote: "This is the best product I've ever used. Highly recommend!",
+    quote: "Task Management System",
     name: "John Doe",
-    designation: "CEO, Company A",
-    src: "/images/john.jpg", // Image path
+    src: "/task-management.avif", // Image path
   },
   {
-    quote: "Amazing experience! The customer service was top-notch.",
+    quote: "AI Based Task Allocation",
     name: "Jane Smith",
-    designation: "Marketing Head, Company B",
-    src: "/images/jane.jpg",
+    src: "/task-allocation.jpeg",
   },
   {
-    quote: "I'm very happy with my purchase. Great value for money.",
+    quote: "LeaderBoard and Gamification",
     name: "Alice Brown",
-    designation: "Product Manager, Company C",
-    src: "/images/alice.jpg",
+    src: "/leaderboard.avif",
+  },
+  {
+    quote: "Drag and Drop Roadmap",
+    name: "Alice Brown",
+    src: "/advanced-roadmap.webp",
   },
   // Add more testimonials as needed
 ];
