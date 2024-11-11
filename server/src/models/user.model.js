@@ -73,10 +73,9 @@ const userSchema = new Schema({
     timestamps: true
 });
 
-// password hashing method
 userSchema.pre('save', async function(next) {
     if (!this.isModified('password')) return next();
-    
+
     try {
         const salt = await bcrypt.genSalt(10);
         this.password = await bcrypt.hash(this.password, salt);
@@ -86,7 +85,6 @@ userSchema.pre('save', async function(next) {
     }
 });
 
-//compare password
 userSchema.methods.comparePassword = async function(candidatePassword) {
     try {
         return await bcrypt.compare(candidatePassword, this.password);
@@ -95,7 +93,6 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
     }
 };
 
-// get public profile
 userSchema.methods.getPublicProfile = function() {
     const userObject = this.toObject();
     delete userObject.password;

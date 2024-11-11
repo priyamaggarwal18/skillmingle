@@ -1,17 +1,6 @@
 import User from '../models/user.model.js';
-import jwt from 'jsonwebtoken';
-import env from "../db/ValidateEnv.js";
+import generateToken from "../utils/generateToken.js";
 
-// Utility Function - Single token generation
-const generateToken = (user) => {
-    return jwt.sign(
-        { id: user._id, role: user.role },
-        env.JWT_SECRET,
-        { expiresIn: '24h' } // Increased expiry time since we're using single token
-    );
-};
-
-// Controller Functions
 const register = async (req, res) => {
     try {
         const { email, password, fullName, role } = req.body;
@@ -33,10 +22,8 @@ const register = async (req, res) => {
             fullName,
             role
         });
-
         await user.save();
 
-        // Generate token
         const token = generateToken(user);
 
         // Remove sensitive data
