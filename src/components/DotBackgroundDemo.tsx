@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { FlipWords } from "./ui/flipword";
 import { AnimatedTestimonials } from "./ui/features";
+import { CardContainer, CardBody, CardItem } from "../../components/ui/3d-card"
 
 export function DotBackgroundDemo() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -51,7 +52,7 @@ export function DotBackgroundDemo() {
           <div className="flex items-center justify-between h-16 ">
             <div className="flex-shrink-0 mr-18">
               <h4 className="text-2xl font-bold">
-                Skill <span className="text-violet-700">Mingle</span>
+                Skill <span className="text-violet-600">Mingle</span>
               </h4>
             </div>
             <nav className="hidden md:block pl-20">
@@ -223,6 +224,32 @@ export function DotBackgroundDemo() {
             </div>
           </div>
         </section>
+
+        <section id="join" className="py-20">
+            <div className="max-w-4xl mx-auto px-4 text-center">
+              <CardContainer className="inter-var text-center ">
+                <CardBody className="bg-violet-500  relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+                  <CardItem
+                    translateZ="50"
+                    className="text-3xl mx-auto font-bold text-white"
+                  >
+                    Join Us Today!
+                  </CardItem>
+                  <CardItem
+                    translateZ="60"
+                    className="text-white text-lg max-w-sm mt-2 ml-6 dark:text-neutral-300"
+                  >
+                    Become a part of the future of Collaboration and Task Management
+                  </CardItem>
+                  <CardItem translateZ="100" className="w-full mt-4 p-4">
+                    <Button className=" bg-white hover:bg-gray-100 text-black font-bold py-3 px-6 rounded-full text-lg transition duration-300 transform hover:scale-105 w-full">
+                      Get Started
+                    </Button>
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
+            </div>
+          </section>
       </div>
 
       <Footer/>
