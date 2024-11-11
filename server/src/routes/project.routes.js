@@ -1,15 +1,15 @@
 import express from "express";
-import projectContoller from "../controllers/project.controller.js";
+import projectController from "../controllers/project.controller.js";
 
 const router = express.Router();
 
 
-router.post('/create', projectContoller.createProj);
+router.post('/create', projectController.createProj);
 router
     .route('/:id')
-    .get(projectContoller.getProjById)
-    .patch(projectContoller.updateProj)
-    .delete(projectContoller.deleteProj);
+    .get(projectController.getProjById)
+    .patch(projectController.updateProj)
+    .delete(projectController.deleteProj);
 
 router.route("")
 

@@ -14,6 +14,7 @@ export const verifyToken = async (req, res, next) => {
             return res.status(401).json({ message: 'Unauthorized' });
         }
         req.user = decoded;
+        
         next();
     } catch (error) {
         console.error(error);

@@ -22,7 +22,7 @@ const createProj = async (req, res) => {
             startDate,
             endDate,
             resources,
-            owner: req.user._id,
+            owner: req.user.id,
         });
         if (!proj) {
             res.status(400).json({ message: "Invalid Details" });
