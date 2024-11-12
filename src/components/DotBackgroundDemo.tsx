@@ -136,8 +136,8 @@ export function DotBackgroundDemo() {
           initial="hidden"
           whileInView={"show"}
           viewport={{once:false,amount:0.5}}
-          className="relative flex h-full w-ull flex-col items-center justify-center overflow-hidden py-10">
-            <h2 className="text-6xl font-bold mb-20">
+          className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden py-10">
+            <h2 className="text-6xl font-bold mb-20 text-center">
               What Our <span className="text-violet-600">Customers</span> say
             </h2>
             {/* Upper Marquee - Scrolls Right */}
@@ -147,60 +147,60 @@ export function DotBackgroundDemo() {
               className="[--duration:20s] select-none"
             >
               {firstRow.map((review, i) => (
-                <figure
-                  key={i}
-                  className={cn(
-                    "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-                    isDarkMode
-                      ? "bg-white text-black border-zinc-50/[.1] over:bg-zinc-50/[.15]"
-                      : "bg-violet-500 text-white border-gray-700"
-                  )}
-                >
-                  <div className="flex flex-row items-center gap-2">
-                    <div className="w-6 h-6 bg-gray-300 rounded-full" />
-                    <div className="flex flex-col">
-                      <figcaption className="text-sm font-medium">
-                        {review.name}
-                      </figcaption>
-                      <p className="text-xs font-medium text-muted-foreground">
-                        {review.username}
-                      </p>
-                    </div>
-                  </div>
-                  <blockquote className="mt-2 text-sm">
-                    {review.body}
-                  </blockquote>
-                </figure>
+          <figure
+            key={i}
+            className={cn(
+              "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+              isDarkMode
+                ? "bg-white text-black border-zinc-50/[.1] over:bg-zinc-50/[.15]"
+                : "bg-violet-500 text-white border-gray-700"
+            )}
+          >
+            <div className="flex flex-row items-center gap-2">
+              <div className="w-6 h-6 bg-gray-300 rounded-full" />
+              <div className="flex flex-col">
+                <figcaption className="text-sm font-medium">
+            {review.name}
+                </figcaption>
+                <p className="text-xs font-medium text-muted-foreground">
+            {review.username}
+                </p>
+              </div>
+            </div>
+            <blockquote className="mt-2 text-sm">
+              {review.body}
+            </blockquote>
+          </figure>
               ))}
             </Marquee>
 
             {/* Lower Marquee - Scrolls Left */}
             <Marquee pauseOnHover className="[--duration:20s] select-none">
               {secondRow.map((review, i) => (
-                <figure
-                  key={i}
-                  className={cn(
-                    "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-                    isDarkMode
-                      ? "bg-white text-black border-zinc-50/[.1] over:bg-zinc-50/[.15]"
-                      : "bg-violet-400 text-white border-gray-700"
-                  )}
-                >
-                  <div className="flex flex-row items-center gap-2">
-                    <div className="w-6 h-6 bg-gray-300 rounded-full" />
-                    <div className="flex flex-col">
-                      <figcaption className="text-sm font-medium">
-                        {review.name}
-                      </figcaption>
-                      <p className="text-xs font-medium text-muted-foreground">
-                        {review.username}
-                      </p>
-                    </div>
-                  </div>
-                  <blockquote className="mt-2 text-sm">
-                    {review.body}
-                  </blockquote>
-                </figure>
+          <figure
+            key={i}
+            className={cn(
+              "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+              isDarkMode
+                ? "bg-white text-black border-zinc-50/[.1] over:bg-zinc-50/[.15]"
+                : "bg-violet-400 text-white border-gray-700"
+            )}
+          >
+            <div className="flex flex-row items-center gap-2">
+              <div className="w-6 h-6 bg-gray-300 rounded-full" />
+              <div className="flex flex-col">
+                <figcaption className="text-sm font-medium">
+            {review.name}
+                </figcaption>
+                <p className="text-xs font-medium text-muted-foreground">
+            {review.username}
+                </p>
+              </div>
+            </div>
+            <blockquote className="mt-2 text-sm">
+              {review.body}
+            </blockquote>
+          </figure>
               ))}
             </Marquee>
           </motion.div>

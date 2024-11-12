@@ -64,11 +64,11 @@ export const Header = ({ translate, titleComponent }: any) => {
   return (
     <motion.div
       style={{
-        translateY: translate,
+      translateY: translate,
       }}
-      className="div max-w-6xl mx-auto text-center font-bold text-8xl pb-12"
+      className="max-w-6xl mx-auto text-center font-bold text-6xl md:text-6xl lg:text-8xl pb-6 md:pb-8 lg:pb-12"
     >
-      <span className="mx-auto text-center font-bold text-8xl ">Empowering Ideas Through </span>
+      <span className="mx-auto text-center font-bold text-6xl md:text-6xl lg:text-8xl">Empowering Ideas Through </span>
       {titleComponent}
     </motion.div>
   );
