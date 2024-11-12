@@ -13,7 +13,9 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { FlipWords } from "./ui/flipword";
 import { AnimatedTestimonials } from "./ui/features";
-import { CardContainer, CardBody, CardItem } from "../../components/ui/contact"
+import { CardContainer, CardBody, CardItem } from "../../components/ui/contact";
+import {motion} from 'framer-motion';
+import {fadeIn} from '../components/variants';
 
 export function DotBackgroundDemo() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -116,15 +118,25 @@ export function DotBackgroundDemo() {
 
         {/* Features Section */}
         <section id="features" className="w-full h-full my-10">
-          <div className="max-w-7xl mx-auto px-4 text-center">
+          <motion.div
+          variants={fadeIn("up",0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once:false,amount:0.5}}
+           className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-7xl font-bold">Features</h2>
             <AnimatedTestimonials testimonials={testimonialsData} autoplay={true} />
-          </div>
+          </motion.div>
         </section>
 
         {/* Marquee Section */}
         <div id="review" className="py-10 md:py-20 w-full mb-10">
-          <div className="relative flex h-full w-ull flex-col items-center justify-center overflow-hidden py-10">
+          <motion.div
+          variants={fadeIn("up",0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once:false,amount:0.5}}
+          className="relative flex h-full w-ull flex-col items-center justify-center overflow-hidden py-10">
             <h2 className="text-6xl font-bold mb-20">
               What Our <span className="text-violet-600">Customers</span> say
             </h2>
@@ -191,12 +203,17 @@ export function DotBackgroundDemo() {
                 </figure>
               ))}
             </Marquee>
-          </div>
+          </motion.div>
         </div>
 
         {/* Meet the Team Section */}
         <section className="w-full h-full my-20">
-          <div id="team" className="max-w-7xl mx-auto  my-10 px-4 text-center">
+          <motion.div
+          variants={fadeIn("up",0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once:false,amount:0.5}}
+           id="team" className="max-w-7xl mx-auto  my-10 px-4 text-center">
             <h2 className="text-7xl font-bold mb-20">
               Meet the <span className="text-violet-600">Team</span>
             </h2>
@@ -222,11 +239,16 @@ export function DotBackgroundDemo() {
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section id="join" className="py-20">
-            <div className="max-w-4xl mx-auto px-4 text-center">
+            <motion.div
+            variants={fadeIn("up",0.2)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{once:false,amount:0.5}}
+             className="max-w-4xl mx-auto px-4 text-center">
               <CardContainer className="inter-var text-center ">
                 <CardBody className="bg-violet-500  relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
                   <CardItem
@@ -248,7 +270,7 @@ export function DotBackgroundDemo() {
                   </CardItem>
                 </CardBody>
               </CardContainer>
-            </div>
+            </motion.div>
           </section>
       </div>
 

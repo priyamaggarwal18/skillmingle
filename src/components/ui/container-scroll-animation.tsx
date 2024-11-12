@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import {fadeIn} from '../variants';
 
 export const ContainerScroll = ({
   titleComponent,
@@ -40,7 +41,11 @@ export const ContainerScroll = ({
       className="h-[60rem] md:h-[80rem] w-full flex items-center justify-center relative p-2 md:p-20"
       ref={containerRef}
     >
-      <div
+      <motion.div
+      variants={fadeIn("up",0.2)}
+      initial="hidden"
+      whileInView={"show"}
+      viewport={{once:false,amount:0.4}}
         className="w-full relative" 
         style={{
           perspective: "1000px",
@@ -50,7 +55,7 @@ export const ContainerScroll = ({
         <Card rotate={rotate} translate={translate} scale={scale} isDarkMode={isDarkMode}>
           {children}
         </Card>
-      </div>
+      </motion.div>
     </div>
   );
 };
