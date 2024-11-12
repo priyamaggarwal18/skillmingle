@@ -90,5 +90,10 @@ export const testimonialsData = [
     name: "Alice Brown",
     src: "/advanced-roadmap.webp",
   },
+  {
+    quote: "Real-Time Chatting System and Meet Integration",
+    name: "Alice Brown",
+    src: "/realtime-chat.avif",
+  }
   // Add more testimonials as needed
 ];

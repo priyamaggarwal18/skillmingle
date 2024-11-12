@@ -7,13 +7,13 @@ import demo from "../../public/demo.png";
 import { darkButton } from "./ui/darkButton";
 import { AnimatedTooltip } from "./ui/team";
 import Footer from "./ui/footer";
-import Marquee from "./ui/slider";
+import Marquee from "./ui/review";
 import { people, reviews,testimonialsData} from "./constants/mainpage";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { FlipWords } from "./ui/flipword";
 import { AnimatedTestimonials } from "./ui/features";
-import { CardContainer, CardBody, CardItem } from "../../components/ui/3d-card"
+import { CardContainer, CardBody, CardItem } from "../../components/ui/contact"
 
 export function DotBackgroundDemo() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -57,7 +57,7 @@ export function DotBackgroundDemo() {
             </div>
             <nav className="hidden md:block pl-20">
               <ul className="flex space-x-10">
-                {["Home", "Features", "Reviews", "Team", "Contact"].map(
+                {["Home", "Features", "Review", "Team", "Contact"].map(
                   (item) => (
                     <li key={item}>
                       <a
@@ -73,7 +73,7 @@ export function DotBackgroundDemo() {
             </nav>
             <div className="flex items-center space-x-4">
               {darkButton({ isDarkMode, toggleDarkMode })}
-              <Button className="border-2 border-violet-800 text-buttons-primary py-2 px-6 rounded-md hover:text-gray-200 transition-all">
+              <Button className="border-2 border-violet-800 text-buttons-primary py-2 px-6 rounded-md hover:text-violet-400 transition-all">
                 Sign Up
               </Button>
               <Button
