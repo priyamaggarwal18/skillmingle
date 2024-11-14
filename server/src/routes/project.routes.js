@@ -1,5 +1,6 @@
 import express from "express";
 import projectController from "../controllers/project.controller.js";
+import { verifyToken } from "../middlewares/verifyJwt.mid.js";
 
 const router = express.Router();
 
@@ -7,10 +8,10 @@ const router = express.Router();
 router.post('/create', projectController.createProj);
 router
     .route('/:id')
-    .get(projectController.getProjById)
-    .patch(projectController.updateProj)
-    .delete(projectController.deleteProj);
+    .get(verifyToken, projectController.getProjById)
+    .patch(verifyToken, projectController.updateProj)
+    .delete(verifyToken, projectController.deleteProj);
 
-router.route("")
+// router.route("")
 
 export default router;

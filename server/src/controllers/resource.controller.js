@@ -4,28 +4,28 @@ import Task from '../models/task.model.js';
 
 const createResource = async (req, res) => {
     try {
-        const { name, description, type, url } = req.body;
+        const { name, description, type, url, project } = req.body;
 
         // Create new resource
-        const resource = new Resource({
+        const resource = await Resource.create({
             name,
             description,
             type,
-            url
+            url,
+            project,
+            owner: req.user._id,
         });
 
-        await resource.save();
-
-        res.status(201).json({
+        return res.status(201).json({
             success: true,
             message: 'Resource created successfully',
             data: resource
         });
     } catch (error) {
-        res.status(500).json({
+        console.error(error.message || error);
+        return res.status(500).json({
             success: false,
             message: 'Internal server error',
-            error: error.message
         });
     }
 };
@@ -69,16 +69,16 @@ const updateResource = async (req, res) => {
 
         await resource.save();
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             message: 'Resource updated successfully',
             data: resource
         });
     } catch (error) {
-        res.status(500).json({
+        console.error(error.message || error);
+        return res.status(500).json({
             success: false,
             message: 'Internal server error',
-            error: error.message
         });
     }
 };
@@ -108,16 +108,16 @@ const deleteResource = async (req, res) => {
 
         await resource.deleteOne();
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             message: 'Resource deleted successfully',
-            data: null
+            data: null,
         });
     } catch (error) {
-        res.status(500).json({
+        console.error(error.message || error);
+        return res.status(500).json({
             success: false,
             message: 'Internal server error',
-            error: error.message
         });
     }
 };

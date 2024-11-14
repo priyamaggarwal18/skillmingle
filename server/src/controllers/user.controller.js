@@ -29,7 +29,13 @@ const register = async (req, res) => {
         // Remove sensitive data
         const userProfile = user.getPublicProfile();
 
-        res.status(201).json({
+        res
+            .cookie('token', token, {
+                httpOnly: true,
+                sameSite: 'strict'
+            })
+            .status(201)
+            .json({
             success: true,
             message: 'User registered successfully',
             data: {
@@ -79,14 +85,20 @@ const login = async (req, res) => {
         user.status = 'active';
         await user.save();
 
-        res.status(200).json({
-            success: true,
-            message: 'Login successful',
-            data: {
-                user: user.getPublicProfile(),
-                token
-            }
-        });
+        res
+            .cookie('token', token, {
+                httpOnly: true,
+                sameSite: 'strict',
+            })
+            .status(200)
+            .json({
+                success: true,
+                message: 'Login successful',
+                data: {
+                    user: user.getPublicProfile(),
+                    token,
+                },
+            });
     } catch (error) {
         res.status(500).json({
             success: false,

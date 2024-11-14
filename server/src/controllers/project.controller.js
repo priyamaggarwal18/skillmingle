@@ -12,7 +12,8 @@ const createProj = async (req, res) => {
             team,
             resources,
             startDate,
-            endDate
+            endDate,
+            link
         } = req.body;
         const proj = await Project.create({
             title,
@@ -22,6 +23,7 @@ const createProj = async (req, res) => {
             startDate,
             endDate,
             resources,
+            link,
             owner: req.user.id,
         });
         if (!proj) {

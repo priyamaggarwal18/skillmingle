@@ -24,7 +24,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         enum: {
-            values: ['developer', 'manager', 'admin'],
+            values: ['developer', 'project-manager', 'moderator', 'super-admin'],
             message: '{VALUE} is not supported'
         },
         default: 'developer'
