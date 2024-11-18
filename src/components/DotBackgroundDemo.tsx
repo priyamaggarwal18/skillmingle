@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ContainerScroll } from "./ui/container-scroll-animation";
@@ -17,6 +17,7 @@ import { CardContainer, CardBody, CardItem } from "../../components/ui/contact";
 import {motion} from 'framer-motion';
 import {fadeIn} from '../components/variants';
 export function DotBackgroundDemo() {
+  const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -74,7 +75,7 @@ export function DotBackgroundDemo() {
       {/* Right Buttons */}
       <div className="hidden lg:flex items-center gap-4">
         {darkButton({ isDarkMode, toggleDarkMode })}
-        <Button className="border-2 border-violet-800 text-buttons-primary py-2 px-4 rounded-md hover:text-violet-400 transition-all">
+        <Button  onClick={() => router.push("/signup")} className="border-2 border-violet-800 text-buttons-primary py-2 px-4 rounded-md hover:text-violet-400 transition-all">
           Sign Up
         </Button>
         <Button
