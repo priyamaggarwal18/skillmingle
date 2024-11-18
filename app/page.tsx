@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { DotBackgroundDemo } from '@/src/components/DotBackgroundDemo';
-import Spinner from 'react-spinkit';
+import React, { useState, useEffect } from "react";
+import { DotBackgroundDemo } from "@/src/components/DotBackgroundDemo";
+import Spinner from "react-spinkit";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
@@ -20,8 +20,8 @@ const HomePage = () => {
   return (
     <div className="app-container relative">
       {loading ? (
-        <div className="flex flex-col justify-center items-center h-screen mt-16">
-          <Spinner name="ball-spin-fade-loader" className='mt-2' color="#7C3AED" fadeIn="none" />
+        <div className="flex justify-center items-center min-h-screen min-w-full">
+          <Spinner name="ball-spin-fade-loader" color="#7C3AED" fadeIn="none" />
         </div>
       ) : (
         <DotBackgroundDemo />

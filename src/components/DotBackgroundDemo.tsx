@@ -44,119 +44,119 @@ export function DotBackgroundDemo() {
 
   return (
     <>
-     <header
-      className={`fixed top-0 left-0 right-0 z-50 ${
-        isDarkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"
-      } backdrop-blur-md`}
-    >
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0 mr-18">
-            <h4 className="text-2xl font-bold">
-              Skill <span className="text-violet-600">Mingle</span>
-            </h4>
-          </div>
-
-          {/* Desktop Nav */}
-          <nav className="hidden lg:block pl-20">
-            <ul className="flex space-x-10">
-              {["Home", "Features", "Review", "Team", "Contact"].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="hover:text-primary transition-colors hover:text-gray-200"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Mobile Menu Button (tablet and phone) */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden focus:outline-none"
-          >
-            <span className="sr-only">Open Menu</span>
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-
-          {/* Right Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            {darkButton({ isDarkMode, toggleDarkMode })}
-            <Button className="border-2 border-violet-800 text-buttons-primary py-2 px-6 rounded-md hover:text-violet-400 transition-all">
-              Sign Up
-            </Button>
-            <Button
-              className={`transition-all duration-300 ${
-                isDarkMode
-                  ? "bg-violet-600 hover:bg-violet-500 text-white"
-                  : "bg-violet-600 hover:bg-violet-500 text-white"
-              }`}
-            >
-              Start Free Trial
-            </Button>
-          </div>
-        </div>
+<header
+  className={`fixed top-0 left-0 right-[20vw] w-screen lg:right-0 z-50  ${
+    isDarkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"
+  } backdrop-blur-md`}
+>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-between h-16">
+      {/* Logo */}
+      <div className="flex items-center">
+        <h4 className="text-xl md:text-2xl font-bold whitespace-nowrap">
+          Skill <span className="text-violet-600">Mingle</span>
+        </h4>
       </div>
 
-      {/* Mobile Nav */}
-      {isMenuOpen && (
-        <nav className="lg:hidden px-4 pb-4">
-          <ul className="space-y-2">
-            {["Home", "Features", "Review", "Team", "Contact"].map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="block py-2 text-lg hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className="flex flex-col space-y-2 mt-4">
-            {darkButton({ isDarkMode, toggleDarkMode })}
-            <Button className="border-2 border-violet-800 text-buttons-primary py-2 rounded-md hover:text-violet-400 transition-all">
-              Sign Up
-            </Button>
-            <Button
-              className={`transition-all duration-300 ${
-                isDarkMode
-                  ? "bg-violet-600 hover:bg-violet-500 text-white"
-                  : "bg-violet-600 hover:bg-violet-500 text-white"
-              } py-2`}
-            >
-              Start Free Trial
-            </Button>
-          </div>
-        </nav>
-      )}
-    </header>
+      {/* Desktop Navigation */}
+      <nav className="hidden lg:flex gap-6 md:gap-10">
+        {["Home", "Features", "Review", "Team", "Contact"].map((item) => (
+          <a
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className="hover:text-violet-600 transition-colors"
+          >
+            {item}
+          </a>
+        ))}
+      </nav>
+
+      {/* Right Buttons */}
+      <div className="hidden lg:flex items-center gap-4">
+        {darkButton({ isDarkMode, toggleDarkMode })}
+        <Button className="border-2 border-violet-800 text-buttons-primary py-2 px-4 rounded-md hover:text-violet-400 transition-all">
+          Sign Up
+        </Button>
+        <Button
+          className={`transition-all duration-300 ${
+            isDarkMode
+              ? "bg-violet-600 hover:bg-violet-500 text-white"
+              : "bg-violet-600 hover:bg-violet-500 text-white"
+          } py-2 px-4 rounded-md`}
+        >
+          Start Free Trial
+        </Button>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="lg:hidden focus:outline-none flex items-center"
+      >
+        <span className="sr-only">Open Menu</span>
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {isMenuOpen ? (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          ) : (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          )}
+        </svg>
+      </button>
+    </div>
+
+    {/* Mobile Navigation */}
+    {isMenuOpen && (
+      <nav className="lg:hidden px-4 pb-4">
+        <ul className="space-y-2">
+          {["Home", "Features", "Review", "Team", "Contact"].map((item) => (
+            <li key={item}>
+              <a
+                href={`#${item.toLowerCase()}`}
+                className="block py-2 text-lg hover:text-violet-600 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-col space-y-2 mt-4">
+          {darkButton({ isDarkMode, toggleDarkMode })}
+          <Button className="border-2 border-violet-800 text-buttons-primary py-2 rounded-md hover:text-violet-400 transition-all">
+            Sign Up
+          </Button>
+          <Button
+            className={`transition-all duration-300 ${
+              isDarkMode
+                ? "bg-violet-600 hover:bg-violet-500 text-white"
+                : "bg-violet-600 hover:bg-violet-500 text-white"
+            } py-2`}
+          >
+            Start Free Trial
+          </Button>
+        </div>
+      </nav>
+    )}
+  </div>
+</header>
+
+
 
       <div
         className={`h-full w-full flex flex-col items-center justify-center transition-all duration-300 ${
