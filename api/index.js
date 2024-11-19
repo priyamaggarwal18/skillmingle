@@ -1,9 +1,9 @@
-const port = "http://localhost:5000/api";
+const port = "http://localhost:4000/api";
 import axios from "axios";
 
 export const login = async (email, password) => {
   try {
-    const response = await axios.post(`${port}/user/login`, {
+    const response = await axios.post(`${port}/auth/login`, {
       email,
       password,
     });
@@ -14,19 +14,18 @@ export const login = async (email, password) => {
 };
 
 export const register = async (
-  username,
+  fullName,
   email,
   password,
-  role,
-  companyName
+  role
 ) => {
   try {
-    const response = await axios.post(`${port}/user/register`, {
-      username,
+    console.log(fullName, email, password, role);
+    const response = await axios.post(`${port}/auth/register`, {
+      fullName,
       email,
       password,
-      role,
-      companyName,
+      role
     });
     return response.data;
   } catch (err) {

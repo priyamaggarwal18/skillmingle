@@ -37,14 +37,15 @@ export default function AuthPage() {
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
   
-    const username = formData.get('name')
+    const fullName = formData.get('name')
     const email = formData.get('email')
     const password = formData.get('password')
     const confirmPassword = formData.get('confirm-password')
     const companyName = formData.get('company-name')
     const role = formData.get('user-type')
 
-    const data=await register(username, email, password, role, companyName);
+    const data=await register(fullName, email, password, role);
+
     if(data.success==true){
       document.location.href='/signup';
       console.log("Register Success");
@@ -133,9 +134,10 @@ export default function AuthPage() {
                           className="block w-full border border-gray-300 text-black rounded-md p-2"
                           required
                         >
-                          <option value="generalUser">General User</option>
-                          <option value="energyProvider">Energy Provider</option>
-                          <option value="capitalProvider">Capital Owner</option>
+                          <option value="developer">developer</option>
+                          <option value="moderator">moderator</option>
+                          <option value="super-admin">super-admin</option>
+                          <option value="project-manager">project-manager</option>
                         </select>
                       </div>
                       {userType === "capitalProvider" && (
