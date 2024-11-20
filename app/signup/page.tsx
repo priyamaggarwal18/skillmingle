@@ -32,13 +32,23 @@ export default function AuthPage() {
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
-    const username = formData.get('name')
+  
+    const fullName = formData.get('name')
     const email = formData.get('email')
     const password = formData.get('password')
     const confirmPassword = formData.get('confirm-password')
     const companyName = formData.get('company-name')
     const role = formData.get('user-type')
-    // Handle sign up logic here
+
+    const data=await register(fullName, email, password, role);
+
+    if(data.success==true){
+      document.location.href='/signup';
+      console.log("Register Success");
+    }
+
+
+    // Include user type and company name
   }
 
   return (
@@ -92,33 +102,46 @@ export default function AuthPage() {
                   </motion.form>
                 </TabsContent>
                 <TabsContent value="signup" key="signup">
-                  <motion.form {...fadeIn} onSubmit={handleSignUp} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <div className="relative">
-                        <Input id="name" name="name" placeholder="John Doe" className="pl-10 w-full max-w-xs" required />
+                  <motion.form {...fadeIn} onSubmit={handleSignUp}>
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="name">Full Name</Label>
+                        <div className="relative">
+                          <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                          <Input id="name" name="name" placeholder="John Doe" className="pl-10" required />
+                        </div>
                       </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="signup-email">Email</Label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                        <Input id="signup-email" name="email" placeholder="m@example.com" type="email" className="pl-10 w-full max-w-xs" required />
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <div className="relative">
+                          <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                          <Input id="email" name="email" placeholder="m@example.com" type="email" className="pl-10" required />
+                        </div>
                       </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="user-type">User Type</Label>
-                        <Select name="user-type" value={userType} onValueChange={setUserType}>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select user type" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-black w-full">
-                          <SelectItem value="Manager" className="hover:bg-violet-500 w-full">Manager</SelectItem>
-                          <SelectItem value="Developer" className="hover:bg-violet-500 w-full">Developer</SelectItem>
-                        </SelectContent>
-                        </Select>
-                    </div>
-                    {userType === "Manager" && (
+                      <div className="space-y-2">
+                        <Label htmlFor="user-type">User Type</Label>
+                        <select
+                          id="user-type"
+                          name="user-type"
+                          value={userType}
+                          onChange={(e) => setUserType(e.target.value)}
+                          className="block w-full border border-gray-300 text-black rounded-md p-2"
+                          required
+                        >
+                          <option value="developer">developer</option>
+                          <option value="moderator">moderator</option>
+                          <option value="super-admin">super-admin</option>
+                          <option value="project-manager">project-manager</option>
+                        </select>
+                      </div>
+                      {userType === "capitalProvider" && (
+                        <div className="space-y-2">
+                          <Label htmlFor="company-name">Company Name</Label>
+                          <div className="relative">
+                            <Input id="company-name" name="company-name" placeholder="Your Company" className="pl-10" required />
+                          </div>
+                        </div>
+                      )}
                       <div className="space-y-2">
                         <Label htmlFor="company-name">Company Name</Label>
                         <div className="relative">
