@@ -2,13 +2,14 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Zap, Mail, Lock, User, ArrowRight, Building } from 'lucide-react'
+import { Zap, Mail, Lock, User, ArrowRight, Building, LogIn } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { login, register } from "../../api/index";
 
 export default function AuthPage() {
   const [activeTab, setActiveTab] = useState("signin")
@@ -27,18 +28,28 @@ export default function AuthPage() {
     const email = formData.get('email')
     const password = formData.get('password')
     // Handle sign in logic here
+    const data=await login(email, password);
+    if(data.success==true){
+      document.location.href='/';
+      console.log("Login Success");
+    }
   }
 
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
-    const username = formData.get('name')
+    const fullName = formData.get('name')
     const email = formData.get('email')
     const password = formData.get('password')
     const confirmPassword = formData.get('confirm-password')
     const companyName = formData.get('company-name')
     const role = formData.get('user-type')
     // Handle sign up logic here
+    const data=await register(fullName, email, password, role);
+    if(data.success==true){
+      document.location.href='/signup';
+      console.log("Register Success");
+    }
   }
 
   return (
@@ -113,8 +124,10 @@ export default function AuthPage() {
                           <SelectValue placeholder="Select user type" />
                         </SelectTrigger>
                         <SelectContent className="bg-black w-full">
-                          <SelectItem value="Manager" className="hover:bg-violet-500 w-full">Manager</SelectItem>
-                          <SelectItem value="Developer" className="hover:bg-violet-500 w-full">Developer</SelectItem>
+                          <SelectItem value="project-manager" className="hover:bg-violet-500 w-full">project-manager</SelectItem>
+                          <SelectItem value="developer" className="hover:bg-violet-500 w-full">Developer</SelectItem>
+                          <SelectItem value="moderator" className="hover:bg-violet-500 w-full">moderator</SelectItem>
+                          <SelectItem value="super-admin" className="hover:bg-violet-500 w-full">super-admin</SelectItem>
                         </SelectContent>
                         </Select>
                     </div>
