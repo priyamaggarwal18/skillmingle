@@ -1,6 +1,6 @@
 import app from "./app.js";
-import env from "./src/db/ValidateEnv.js";
-import connectDB from "./src/db/config.js";
+import env from "./src/config/ValidateEnv.js";
+import connectDB from './src/config/db.js';
 
 const PORT = env.PORT;
 
@@ -10,4 +10,5 @@ connectDB().then(() => {
     })
 }).catch((err) => {
     console.log(err);
+    process.exit(1);
 });

@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 import { cleanEnv, port, str } from 'envalid';
 import { resolve } from 'path';
-config({ path: resolve('./.env') });
+config({ path: resolve(' ') });
 
 export default cleanEnv(process.env, {
     PORT: port() || 8080,
