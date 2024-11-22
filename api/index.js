@@ -2,6 +2,7 @@ const port = "http://localhost:4000/api";
 import axios from "axios";
 
 export const login = async (email, password) => {
+  console.log(email,password);
   try {
     const response = await axios.post(`${port}/auth/login`, {
       email,
@@ -20,7 +21,6 @@ export const register = async (
   role
 ) => {
   try {
-    console.log(fullName, email, password, role);
     const response = await axios.post(`${port}/auth/register`, {
       fullName,
       email,

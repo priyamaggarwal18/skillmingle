@@ -56,7 +56,6 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-
         // Find user
         const user = await User.findOne({ email });
         if (!user) {
@@ -83,10 +82,10 @@ const login = async (req, res) => {
         // Update last active
         user.lastActive = new Date();
         user.status = 'active';
+        
         await user.save();
 
-        res
-            .cookie('token', token, {
+        res.cookie('token', token, {
                 httpOnly: true,
                 sameSite: 'strict',
             })
