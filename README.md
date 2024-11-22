@@ -1,37 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# 🛠️ **SKILL MINGLE** 🛠️
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+An innovative solution for seamless task and project management, leveraging AI for task allocation, real-time collaboration, and enhanced productivity.
+[Click here:](https://skillmingle.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 **Introduction**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![Task Management Screenshot](public/images/Intro.png "Task Management Screenshot")
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- **What is the Project Management Platform?**  
+  A cutting-edge tool designed to simplify project management with advanced features like AI-driven task allocation, real-time collaboration, and gamification for improved team productivity.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Why Choose Us?**  
+  Our platform combines intuitive UI, real-time capabilities, and intelligent features to meet the needs of modern teams.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔍 **Core Features**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 1️⃣ **Task & Project Management**
+- AI-powered task allocation with drag-and-drop charts to visualize task dependencies and timelines.
+- Easy-to-use interface for organizing and managing tasks at scale.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
---
+### 2️⃣ **Real-Time Collaboration**
+- **Real-Time Chat**: Powered by Socket.io for instant communication.  
+- **Google Meet Integration**: Seamlessly schedule and join video meetings within the platform.
+
+### 3️⃣ **Version Control & Progress Tracking**
+- Integration with GitHub/GitLab for tracking commits, milestones, and live updates on task progress.  
+- Version control tools ensure every team member stays on the same page.
+
+### 4️⃣ **Enhanced Team Productivity**
+- **Gamification**: Earn badges to motivate and recognize team efforts.  
+- **Push Notifications**: Real-time notifications for task updates and deadlines.
+
+---
+
+## 🚀 **Tech Stack**
+
+
+![Task Management Screenshot](public/images/Features.png "Task Management Screenshot")
+
+
+### **Backend**
+- **Express.js**: Efficient handling of real-time task updates and collaboration requests.  
+- **MongoDB**: Scalable database for managing project tasks, events, and progress.  
+- **JWT & Bcrypt**: Secure authentication for teams, protecting sensitive project data.  
+- **AI**: Gemini API for AI-driven ticket recommendations.
+
+### **Frontend**
+- **Next.js**: SEO-friendly and fast user interface for real-time updates.  
+- **Socket.io**: Powers real-time chat for instant team communication.
+
+### **Deployment**
+- **Docker**: Ensures smooth containerization and deployment.  
+- **Vercel**: Optimized for Next.js applications, ensuring reliable performance.
+
+---
+
+## ✨ **Uniqueness**
+
+- **IEEE-CIET Collaboration**: Designed with cutting-edge innovation and professional input.
+- **AI Task Allocation**: Revolutionizes task assignment with intelligent recommendations.
+- **Gamification**: Boosts productivity through badges and motivational tools.
+- **Drag-and-Drop Roadmap**: Intuitive visual planning of tasks and timelines.
+- **Real-Time Communication**: Instant chat and meeting integration for seamless collaboration.
+
+---
+
+## 🤝 **How to Contribute**
+
+### 1️⃣ **Getting Started**
+- **Fork**: Create your copy by forking the repository.  
+- **Clone**: Clone it locally using `git clone <repo-link>`.  
+- **Setup**: Install dependencies with `npm install`.
+
+### 2️⃣ **Making Contributions**
+- Understand the project structure and follow the coding standards.  
+- Make your changes and test thoroughly to ensure they work as expected.
+
+### 3️⃣ **Submit Your Changes**
+- Create a new branch: `git checkout -b feature/your-feature-name`.  
+- Commit your changes: `git commit -m "Add your feature description"`.  
+- Push the branch: `git push origin feature/your-feature-name`.  
+- Open a pull request for review.
+
+---
+
+## 🙌 Meet the Team
+
+<div align="center">
+
+| ![Priyam Aggarwal](public/images/priyam.jpg "Priyam Aggarwal") | ![Soham Chakraborty](public/images/soham.jpeg "Soham Chakraborty") | ![Alisha Vashisht](public/images/alisha.jpeg "Alisha Vashisht") | ![Lovish Bansal](public/images/lovish.jpg "Lovish Bansal") | ![Bama Charan](public/images/bama.jpeg "Bama Charan") |
+|:---:|:---:|:---:|:---:|:---:|
+| [**Priyam Aggarwal**](https://www.linkedin.com/in/priyamaggarwal/) <br> *Team Lead* | [**Soham Chakraborty**](https://www.linkedin.com/in/soham-chakraborty-108450255/) <br> *Frontend Developer* | [**Alisha Vashisht**](https://www.linkedin.com/in/alisha-vashisht-56534620b/) <br> *Frontend Developer* | [**Lovish Bansal**](https://www.linkedin.com/in/lovish2584-profile/) <br> *Backend Developer* | [**Bama Charan**](https://www.linkedin.com/in/bamacharanchhandogi/) <br> *Backend Developer* |
+
+</div>
+
+
+---
+
+## 📜 **License**
+This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute it as needed.
+
