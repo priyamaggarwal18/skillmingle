@@ -95,7 +95,7 @@ An innovative solution for seamless task and project management, leveraging AI f
 
 <div align="center">
 
-| ![Priyam Aggarwal](public/images/priyam.jpg "Priyam Aggarwal") | ![Soham Chakraborty](public/images/soham.jpeg "Soham Chakraborty") | ![Alisha Vashisht](public/images/alisha.jpeg "Alisha Vashisht") | ![Lovish Bansal](public/images/lovish.jpg "Lovish Bansal") | ![Bama Charan](public/images/bama.jpeg "Bama Charan") |
+| ![Priyam Aggarwal](images/priyam.jpg "Priyam Aggarwal") | ![Soham Chakraborty](public/images/soham.jpeg "Soham Chakraborty") | ![Alisha Vashisht](public/images/alisha.jpeg "Alisha Vashisht") | ![Lovish Bansal](public/images/lovish.jpg "Lovish Bansal") | ![Bama Charan](public/images/bama.jpeg "Bama Charan") |
 |:---:|:---:|:---:|:---:|:---:|
 | [**Priyam Aggarwal**](https://www.linkedin.com/in/priyamaggarwal/) <br> *Team Lead* | [**Soham Chakraborty**](https://www.linkedin.com/in/soham-chakraborty-108450255/) <br> *Frontend Developer* | [**Alisha Vashisht**](https://www.linkedin.com/in/alisha-vashisht-56534620b/) <br> *Frontend Developer* | [**Lovish Bansal**](https://www.linkedin.com/in/lovish2584-profile/) <br> *Backend Developer* | [**Bama Charan**](https://www.linkedin.com/in/bamacharanchhandogi/) <br> *Backend Developer* |
 
