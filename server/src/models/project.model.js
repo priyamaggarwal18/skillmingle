@@ -7,13 +7,13 @@ const projSchema = new Schema(
             type: String,
             required: [true, 'Title is Required'],
             trim: true,
-            unique: true,
             minlength: 3,
         },
         description: {
             type: String,
             trim: true,
             minlength: 10,
+            required: [true, 'Description is Required'],
         },
         status: {
             type: String,
@@ -58,7 +58,7 @@ const projSchema = new Schema(
         link: {
             type: String,
             trim: true,
-            unique: true,
+            required: false
         },
     },
     {

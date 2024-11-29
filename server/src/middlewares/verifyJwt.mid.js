@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import env from '../db/ValidateEnv.js';
+import env from '../config/ValidateEnv.js';
 
-export const verifyToken = async (req, res, next) => {
+export default async function verifyToken (req, res, next) {
     try {
 
         const token = req.headers.authorization?.split(' ')[1] || req?.headers?.cookie?.split('=')[1];

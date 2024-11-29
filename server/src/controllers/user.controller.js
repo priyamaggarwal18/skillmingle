@@ -1,3 +1,4 @@
+import axios from 'axios';
 import User from '../models/user.model.js';
 import generateToken from "../utils/generateToken.js";
 
@@ -82,7 +83,7 @@ const login = async (req, res) => {
         // Update last active
         user.lastActive = new Date();
         user.status = 'active';
-        
+
         await user.save();
 
         res.cookie('token', token, {
@@ -179,7 +180,7 @@ const updateStatus = async (req, res) => {
     try {
         const { status } = req.body;
         const user = await User.findById(req.user.id);
-        
+
         if (!user) {
             return res.status(404).json({
                 success: false,
@@ -206,10 +207,75 @@ const updateStatus = async (req, res) => {
     }
 };
 
+const githubLogin = async (req, res) => {
+    try {
+        const { code } = req.body;
+        const response = await axios.post(`${GITHUB_URL}/login/oauth/access_token`, {
+            client_id: process.env.GITHUB_CLIENT_ID,
+            client_secret: process.env.GITHUB_CLIENT_SECRET,
+            code,
+        });
+
+        const accessToken = response.data.access_token;
+        const userResponse = await axios.get(`${GITHUB_URL}/user`, {
+            headers: {
+                Authorization: `token ${accessToken}`,
+            },
+        });
+
+        const githubUser = userResponse.data;
+        const user = await User.findOneAndUpdate({ email: githubUser.email }, {
+            email: githubUser.email,
+            fullName: githubUser.name,
+            avatar: githubUser.avatar_url,
+            tokens: (this?.tokens || []).concat({
+                service: 'github',
+                token: accessToken
+            }),
+            role: 'user',
+        }, {
+            new: true,
+            upsert: true,
+        });
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'Failed to login',
+                data: null
+            });
+        }
+
+        return res
+            .cookie('token', generateToken(user), {
+                httpOnly: true,
+                sameSite: 'strict',
+            })
+            .status(200)
+            .json({
+                success: true,
+                message: 'Login successful',
+                data: {
+                    user: user.getPublicProfile(),
+                }
+            });
+    } catch (error) {
+        console.error('Github login error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Internal server error',
+            error: error.message
+        });
+    }
+};
+
+
+
 export default {
     register,
     login,
     logout,
     updateProfile,
-    updateStatus
+    updateStatus,
+    githubLogin,
 };

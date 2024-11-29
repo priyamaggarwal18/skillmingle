@@ -15,6 +15,10 @@ const createProj = async (req, res) => {
             endDate,
             link
         } = req.body;
+        const exisingProj = await Project.findOne({ title });
+        if (exisingProj) {
+            return res.status(400).json({ message: 'Title Must be kept Unique.' });
+        }
         const proj = await Project.create({
             title,
             description,
@@ -24,7 +28,7 @@ const createProj = async (req, res) => {
             endDate,
             resources,
             link,
-            owner: req.user.id,
+            owner: req.user._id,
         });
         if (!proj) {
             res.status(400).json({ message: "Invalid Details" });

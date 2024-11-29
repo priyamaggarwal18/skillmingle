@@ -68,7 +68,17 @@ const userSchema = new Schema({
     },
     lastActive: {
         type: Date
-    }
+    },
+    authApps: [{
+        username: {
+            type: String,
+            required: true
+        },
+        token: {
+            type: String,
+            required: true
+        },
+    }]
 }, {
     timestamps: true
 });
