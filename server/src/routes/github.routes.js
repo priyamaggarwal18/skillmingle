@@ -5,7 +5,7 @@ const router = Router();
 
 // get Routes
 router.route('/user')
-    .get(githubController.routeGithubUser);
+    .get(githubController.getGithubUser);
 router
     .route('/user/repos')
     .get(githubController.getAllUserPublicRepos);
@@ -13,34 +13,34 @@ router
 router
     .route('/user/repos/:repoName')
     .get(githubController.getGithubRepo)
-    .post(githubController.createGithubRepo) // [Test this route
-    .patch(githubController.updateGithubRepo) // [Test this route]
-    .delete(githubController.deleteGithubRepo); // [Test this route]
+    // .post(githubController.createGithubRepo)
+    // .patch(githubController.updateGithubRepo)
+    // .delete(githubController.deleteGithubRepo);
 router.route('/user/repos/:repoName/commits')
     .get(githubController.getGithubCommits)
-    .post(githubController.addGithubCommit) // [Test this route]'
-    .patch(githubController.updateGithubCommit) // [Test this route]
-    .delete(githubController.deleteGithubCommit); // [Test this route]
+    // .post(githubController.addGithubCommit)'
+    // .patch(githubController.updateGithubCommit)
+    // .delete(githubController.deleteGithubCommit);
 
 router
     .route('/user/repos/:repoName/contributors')
     .get(githubController.getGithubContributors)
-    .post(githubController.addGithubContributor) // [Test this route
-    .patch(githubController.updateGithubContributor) // [Test this route]
-    .delete(githubController.deleteGithubContributor); // [Test this route]
+    // .post(githubController.addGithubContributor)
+    // .patch(githubController.updateGithubContributor)
+    // .delete(githubController.deleteGithubContributor);
 router.route('/user/repos/:repoName/pullrequests')
     .get(githubController.getGithubPullRequests)
-    .post(githubController.createGithubPullRequest) // [Test this route]
-    .patch(githubController.updateGithubPullRequest) // [Test this route]
-    .delete(githubController.deleteGithubPullRequest); // [Test this route]
+    // .post(githubController.createGithubPullRequest)
+    // .patch(githubController.updateGithubPullRequest)
+    // .delete(githubController.deleteGithubPullRequest);
 
 // Post Routes
 router
     .route('/user/repos/:repoName/issues')
     .get(githubController.getGithubIssues)
-    .post(githubController.createGithubIssue) // [Test this route]
-    .patch(githubController.updateGithubIssue) // [Test this route]
-    .delete(githubController.deleteGithubIssue) // [Test this route]
+    // .post(githubController.createGithubIssue)
+    // .patch(githubController.updateGithubIssue)
+    // .delete(githubController.deleteGithubIssue)
 
 
 export default router;
