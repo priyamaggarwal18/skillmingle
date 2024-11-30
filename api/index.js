@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const port = (import.meta.env?.API_URL || process?.env?.API_URL || 'http://localhost:4000') + '/api';
+const api = (import.meta.env?.API_URL || process?.env?.API_URL || 'http://localhost:4000') + '/api';
 export const login = async (email, password) => {
     //   console.log(email,password);
     try {
-        const response = await axios.post(`${port}/auth/login`, {
+        const response = await axios.post(`${api}/auth/login`, {
                 email,
                 password,
             }, {
@@ -31,12 +31,15 @@ export const login = async (email, password) => {
 
 export const register = async (fullName, email, password, role) => {
     try {
-        const response = await axios.post(`${port}/auth/register`, {
+        const response = await axios.post(
+            `${api}/auth/register`,
+            {
                 fullName,
                 email,
                 password,
                 role,
-            }, {
+            },
+            {
                 withCredentials: true,
             }
         );
@@ -59,7 +62,7 @@ export const register = async (fullName, email, password, role) => {
 
 export const logout = async () => {
     try {
-        const response = await axios.get(`${port}/auth/logout`, {
+        const response = await axios.get(`${api}/auth/logout`, {
             withCredentials: true,
         });
         console.log(response.data);
@@ -82,7 +85,7 @@ export const logout = async () => {
 
 export const getCurrUser = async () => {
     try {
-        const response = await axios.get(`${port}/auth/profile`, {
+        const response = await axios.get(`${api}/auth/profile`, {
             withCredentials: true,
         });
         if (!response) {
