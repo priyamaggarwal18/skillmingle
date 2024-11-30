@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { DotBackgroundDemo } from '@/src/components/DotBackgroundDemo';
 import Spinner from 'react-spinkit';
-import { SidebarLink } from '@/components/ui/dashbaord/sidebar';
+// import { SidebarLink } from '@/components/ui/dashbaord/sidebar';
 
 const HomePage = () => {
     const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ const HomePage = () => {
         // Simulate a loading delay (e.g., 2 seconds)
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 1000);
 
         // Clean up the timer when the component unmounts
         return () => clearTimeout(timer);

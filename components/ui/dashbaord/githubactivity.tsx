@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -53,7 +53,7 @@ export default function GitHubActivity() {
           </Button>
         )}
       </div>
-      
+
       {!isConnected ? (
         <Card className='mt-16'>
           <CardHeader>

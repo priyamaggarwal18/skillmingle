@@ -24,31 +24,41 @@ export default function AuthPage() {
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.target as HTMLFormElement)
-    const email = formData.get('email')
-    const password = formData.get('password')
-    // Handle sign in logic here
-    const data=await login(email, password);
-    if(data.success==true){
-      document.location.href='/';
-      console.log("Login Success");
+    try {
+        const formData = new FormData(e.target as HTMLFormElement)
+        const email = formData.get('email')
+        const password = formData.get('password')
+        // Handle sign in logic here
+        const data=await login(email, password);
+        if(data?.success==true){
+          document.location.href='/';
+          console.log("Login Success");
+        }
+    } catch (error) {
+        console.error(error);
+        console.log("Login Failed");
     }
   }
 
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.target as HTMLFormElement)
-    const fullName = formData.get('name')
-    const email = formData.get('email')
-    const password = formData.get('password')
-    const confirmPassword = formData.get('confirm-password')
-    const companyName = formData.get('company-name')
-    const role = formData.get('user-type')
-    // Handle sign up logic here
-    const data=await register(fullName, email, password, role);
-    if(data.success==true){
-      document.location.href='/signup';
-      console.log("Register Success");
+    try {
+        const formData = new FormData(e.target as HTMLFormElement)
+        const fullName = formData.get('name')
+        const email = formData.get('email')
+        const password = formData.get('password')
+        const confirmPassword = formData.get('confirm-password')
+        const companyName = formData.get('company-name')
+        const role = formData.get('user-type')
+        // Handle sign up logic here
+        const data=await register(fullName, email, password, role);
+        if(data?.success==true){
+          document.location.href='/';
+          console.log("Register Success");
+        }
+    } catch (error) {
+        console.error(error);
+        console.log("Register Failed");
     }
   }
 

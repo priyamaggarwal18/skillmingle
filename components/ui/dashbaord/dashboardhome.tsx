@@ -4,14 +4,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
+// import { Separator } from "@/components/ui/separator"
 import { CalendarDays, CheckCircle2, Clock, ListTodo, Users } from 'lucide-react'
 
 export default function DashboardHome() {
   return (
     <div className="space-y-6">
       <h1 className="text-3xl font-bold pb-6">Welcome back, Alex</h1>
-      
+
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0">

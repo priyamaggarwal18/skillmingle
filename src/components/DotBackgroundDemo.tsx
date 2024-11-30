@@ -10,20 +10,21 @@ import Footer from './ui/footer';
 import Marquee from './ui/review';
 import {
     people,
-    reviews,@/components/ui/button
+    reviews,
     testimonialsData,
 } from './constants/mainpage';
-import { cn } from '@/lib/utils';../../components/ui/contact
-import { Button } from '@/app/fonts/ui/button';
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 import { FlipWords } from './ui/flipword';
 import { AnimatedTestimonials } from './ui/features';
 import {
     CardContainer,
     CardBody,
     CardItem,
-} from '../../app/fonts/ui/contact';
+} from '../../components/ui/contact';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../components/variants';
+
 export function DotBackgroundDemo() {
     const router = useRouter();
     const [isDarkMode, setIsDarkMode] = useState(true);
@@ -38,7 +39,6 @@ export function DotBackgroundDemo() {
         const handleChange = (e: MediaQueryListEvent) => {
             setIsDarkMode(e.matches);
         };
-
         prefersDarkScheme.addEventListener('change', handleChange);
 
         return () => {
@@ -378,7 +378,6 @@ export function DotBackgroundDemo() {
                         </div>
                     </motion.div>
                 </section>
-
                 <section id="join" className="py-20">
                     <motion.div
                         variants={fadeIn('up', 0.2)}
