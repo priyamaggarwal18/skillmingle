@@ -1,9 +1,16 @@
 
 
-# 🛠️ **SKILL MINGLE** 🛠️
+<h1 align="center"> SKILL MINGLE </h1>
+<div align="center">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/priyamaggarwal18/skillmingle?style=for-the-badge&color=7c3aed">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/priyamaggarwal18/skillmingle?style=for-the-badge&color=7c3aed">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/priyamaggarwal18/skillmingle?style=for-the-badge&color=7c3aed">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/priyamaggarwal18/skillmingle?style=for-the-badge&color=7c3aed">
+</div>
 
 An innovative solution for seamless task and project management, leveraging AI for task allocation, real-time collaboration, and enhanced productivity.
 [Click here:](https://skillmingle.vercel.app/)
+
 
 ---
 
