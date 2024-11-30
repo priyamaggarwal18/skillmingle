@@ -45,6 +45,15 @@ An innovative solution for seamless task and project management, leveraging AI f
 ---
 
 ## 🚀 **Tech Stack**
+![Express.js](https://img.shields.io/badge/Backend-Express.js-blue)
+![MongoDB](https://img.shields.io/badge/Backend-MongoDB-green)
+![JWT](https://img.shields.io/badge/Authentication-JWT-yellow)
+![Bcrypt](https://img.shields.io/badge/Authentication-Bcrypt-blue)
+![Gemini API](https://img.shields.io/badge/AI-Gemini_API-orange)
+![Next.js](https://img.shields.io/badge/Frontend-Next.js-blue)
+![Socket.io](https://img.shields.io/badge/Frontend-Socket.io-lightgrey)
+![Docker](https://img.shields.io/badge/Deployment-Docker-blue)
+![Vercel](https://img.shields.io/badge/Deployment-Vercel-black)
 
 ### **Backend**
 - **Express.js**: Efficient handling of real-time task updates and collaboration requests.  
