@@ -4,31 +4,31 @@ import githubController from '../controllers/github.controller.js';
 const router = Router();
 
 // get Routes
-router.route('/user')
+router.route('/user/:username')
     .get(githubController.getGithubUser);
 router
-    .route('/user/repos')
+    .route('/user/:username/repos')
     .get(githubController.getAllUserPublicRepos);
 
 router
-    .route('/user/repos/:repoName')
+    .route('/user/:username/repos/:repoName')
     .get(githubController.getGithubRepo)
     // .post(githubController.createGithubRepo)
     // .patch(githubController.updateGithubRepo)
     // .delete(githubController.deleteGithubRepo);
-router.route('/user/repos/:repoName/commits')
+router.route('/user/:username/repos/:repoName/commits')
     .get(githubController.getGithubCommits)
     // .post(githubController.addGithubCommit)'
     // .patch(githubController.updateGithubCommit)
     // .delete(githubController.deleteGithubCommit);
 
 router
-    .route('/user/repos/:repoName/contributors')
+    .route('/user/:username/repos/:repoName/contributors')
     .get(githubController.getGithubContributors)
     // .post(githubController.addGithubContributor)
     // .patch(githubController.updateGithubContributor)
     // .delete(githubController.deleteGithubContributor);
-router.route('/user/repos/:repoName/pullrequests')
+router.route('/user/:username/repos/:repoName/pullrequests')
     .get(githubController.getGithubPullRequests)
     // .post(githubController.createGithubPullRequest)
     // .patch(githubController.updateGithubPullRequest)

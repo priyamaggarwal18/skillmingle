@@ -7,6 +7,8 @@ const GITHUB_URL = 'https://api.github.com';
 
 const getGithubUser = async (req, res) => {
     try {
+        console.log(req.params.username);
+
         const username = req.params.username;
         const response = await axios.get(
             `${GITHUB_URL}/users/${username}`
@@ -38,8 +40,8 @@ const getAllUserPublicRepos = async (req, res) => {
 };
 
 const getGithubRepo = async (req, res) => {
-    // https://api.github.com/repos/priyamaggarwal18/skillmingle
-    https: try {
+    try {
+        console.log(req.params);
         const { username, repoName } = req.params;
         const response = await axios.get(
             `${GITHUB_URL}/repos/${username}/${repoName}`
@@ -127,7 +129,6 @@ const getGithubIssues = async (req, res) => {
     }
 };
 
-
 const createGithubIssue = async (req, res) => {
     try {
         const { username, repoName } = req.params.repoName;
@@ -144,7 +145,6 @@ const createGithubIssue = async (req, res) => {
         return res.status(500).json({ error: err.message });
     }
 };
-
 
 
 export default {
