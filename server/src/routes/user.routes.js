@@ -13,6 +13,7 @@ router.post('/github', UserController.githubLogin);
 router.post('/logout', verifyToken, UserController.logout);
 
 // // Profile routes
+router.get('/profile', verifyToken, UserController.getProfile);
 router.put('/profile', verifyToken, UserController.updateProfile);
 router.put('/status', verifyToken, UserController.updateStatus);
 // router.get('/badges', verifyToken, UserController.getBadges);

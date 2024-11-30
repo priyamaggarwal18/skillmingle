@@ -22,13 +22,36 @@ import {
     CardBody,
     CardItem,
 } from '../../components/ui/contact';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+
 import { motion } from 'framer-motion';
 import { fadeIn } from '../components/variants';
+import { getCurrUser } from '@/api';
 
 export function DotBackgroundDemo() {
     const router = useRouter();
     const [isDarkMode, setIsDarkMode] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        async function fetchUser() {
+            const user = await getCurrUser();
+            if (user.success == false) {
+                setUser(null);
+            } else {
+                setUser(user.data || null);
+            }
+        }
+        fetchUser();
+    }, []);
 
     useEffect(() => {
         const prefersDarkScheme = window.matchMedia(
@@ -102,12 +125,34 @@ export function DotBackgroundDemo() {
                                 isDarkMode,
                                 toggleDarkMode,
                             })}
-                            <Button
-                                onClick={() => router.push('/signup')}
-                                className="border-2 border-violet-800 text-buttons-primary py-2 px-4 rounded-md hover:text-violet-400 transition-all"
-                            >
-                                Sign Up
-                            </Button>
+                            {user != null ? (
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger>
+                                        Open
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent>
+                                        <DropdownMenuLabel className='capitalize'>
+                                            {user.fullName || 'User'}
+                                        </DropdownMenuLabel>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem>
+                                            Profile
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            Logout
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            ) : (
+                                <Button
+                                    onClick={() =>
+                                        router.push('/signup')
+                                    }
+                                    className="border-2 border-violet-800 text-buttons-primary py-2 px-4 rounded-md hover:text-violet-400 transition-all"
+                                >
+                                    Sign Up
+                                </Button>
+                            )}
                             <Button
                                 className={`transition-all duration-300 ${
                                     isDarkMode

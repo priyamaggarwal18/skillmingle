@@ -57,7 +57,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log(email, password);
+        // console.log(email, password);
 
         // Find user
         const user = await User.findOne({ email });
@@ -88,7 +88,7 @@ const login = async (req, res) => {
 
         await user.save();
 
-        res.cookie('token', token, {
+        return res.cookie('token', token, {
                 httpOnly: true,
                 sameSite: 'strict',
             })
@@ -102,10 +102,10 @@ const login = async (req, res) => {
                 },
             });
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             message: 'Internal server error',
-            error: error.message
+            error: error.message,
         });
     }
 };
@@ -124,13 +124,40 @@ const logout = async (req, res) => {
         user.status = 'inactive';
         await user.save();
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             message: 'Logged out successfully',
             data: null
         });
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
+            success: false,
+            message: 'Internal server error',
+            error: error.message
+        });
+    }
+};
+
+const getProfile = async (req, res) => {
+    try {
+        // console.log(req.user);
+
+        const user = await User.findById(req.user._id);
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found',
+                data: null
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: 'Profile retrieved successfully',
+            data: user?.getPublicProfile()
+        });
+    } catch (error) {
+        return res.status(500).json({
             success: false,
             message: 'Internal server error',
             error: error.message
@@ -277,6 +304,7 @@ export default {
     register,
     login,
     logout,
+    getProfile,
     updateProfile,
     updateStatus,
     githubLogin,

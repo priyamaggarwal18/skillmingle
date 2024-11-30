@@ -3,8 +3,10 @@ import env from '../config/ValidateEnv.js';
 
 export default async function verifyToken (req, res, next) {
     try {
-
-        const token = req.headers.authorization?.split(' ')[1] || req?.headers?.cookie?.split('=')[1];
+        // console.log(req.headers.cookie.split('=')[1].split(';')[0]);
+        const token =
+            req.headers.authorization?.split(' ')[1] ||
+            req?.headers?.cookie?.split('=')[1]?.split(';')[0];
 
         if (!token) {
             return res.status(403).json({ message: 'No token provided' });
