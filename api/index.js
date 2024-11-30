@@ -61,8 +61,8 @@ export const logout = async () => {
     try {
         const response = await axios.get(`${port}/auth/logout`, {
             withCredentials: true,
-        }
-        );
+        });
+        console.log(response.data);
         if (!response) {
             console.log('No response');
             return {

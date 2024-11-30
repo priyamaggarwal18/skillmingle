@@ -33,7 +33,7 @@ import {
 
 import { motion } from 'framer-motion';
 import { fadeIn } from '../components/variants';
-import { getCurrUser } from '@/api';
+import { getCurrUser, logout } from '@/api';
 
 export function DotBackgroundDemo() {
     const router = useRouter();
@@ -139,7 +139,16 @@ export function DotBackgroundDemo() {
                                             Profile
                                         </DropdownMenuItem>
                                         <DropdownMenuItem>
-                                            Logout
+                                            <button
+                                                onClick={async () => {
+                                                    await logout();
+                                                    setUser(null);
+                                                    setIsMenuOpen(false);
+                                                    router.refresh();
+                                                }}
+                                            >
+                                                Logout
+                                            </button>
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
