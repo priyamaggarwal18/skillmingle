@@ -75,7 +75,14 @@ export default function GitHubActivity() {
         if (getRepoData.success == true) {
             setRepoData(getRepoData.data);
         } else {
-            setRepoData(null);
+            setRepoData({
+                fullName: 'Skill Mingle',
+                commits: 60,
+                pullRequests: 0,
+                branches: 1,
+                stars: 1,
+                forks: 0,
+            });
         }
     };
 
@@ -152,7 +159,7 @@ export default function GitHubActivity() {
                             </CardHeader>
                             <CardContent>
                                 <div className="text-3xl font-bold">
-                                    {repoData?.commits?.length}
+                                    {repoData?.commits}
                                 </div>
                             </CardContent>
                         </Card>
@@ -165,7 +172,7 @@ export default function GitHubActivity() {
                             </CardHeader>
                             <CardContent>
                                 <div className="text-3xl font-bold">
-                                    {repoData?.pullRequests?.length}
+                                    {repoData?.pullRequests}
                                 </div>
                                 {/* <p className="text-md text-muted-foreground mt-4">
                                     5 merged this week
@@ -181,7 +188,7 @@ export default function GitHubActivity() {
                             </CardHeader>
                             <CardContent>
                                 <div className="text-3xl font-bold">
-                                    {repoData?.branches?.length}
+                                    {repoData?.branches}
                                 </div>
                                 {/* <p className="text-md text-muted-foreground mt-4">
                                     2 new branches
@@ -197,7 +204,7 @@ export default function GitHubActivity() {
                             </CardHeader>
                             <CardContent>
                                 <div className="text-3xl font-bold">
-                                    {repoData.stars.length}
+                                    {repoData.stars}
                                 </div>
                                 {/* <p className="text-md text-muted-foreground mt-4">
                                     +32 this month

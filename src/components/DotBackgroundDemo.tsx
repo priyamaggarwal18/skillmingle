@@ -128,22 +128,35 @@ export function DotBackgroundDemo() {
                             {user != null ? (
                                 <DropdownMenu>
                                     <DropdownMenuTrigger>
-                                        Open
+                                        <Button
+                                            className={`transition-all duration-300 ${
+                                                isDarkMode
+                                                    ? 'bg-violet-600 hover:bg-violet-500 text-white'
+                                                    : 'bg-violet-600 hover:bg-violet-500 text-white'
+                                            } py-2 px-4 rounded-md`}
+                                        >
+                                            {user.fullName || 'User'}
+                                        </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent>
-                                        <DropdownMenuLabel className='capitalize'>
-                                            {user.fullName || 'User'}
-                                        </DropdownMenuLabel>
-                                        <DropdownMenuSeparator />
                                         <DropdownMenuItem>
-                                            Profile
+                                            <button
+                                                className=""
+                                                onClick={() => {
+                                                    // router.push('/profile')
+                                                }}
+                                            >
+                                                Profile
+                                            </button>
                                         </DropdownMenuItem>
                                         <DropdownMenuItem>
                                             <button
                                                 onClick={async () => {
                                                     await logout();
                                                     setUser(null);
-                                                    setIsMenuOpen(false);
+                                                    setIsMenuOpen(
+                                                        false
+                                                    );
                                                     router.refresh();
                                                 }}
                                             >
@@ -153,24 +166,26 @@ export function DotBackgroundDemo() {
                                     </DropdownMenuContent>
                                 </DropdownMenu>
                             ) : (
-                                <Button
-                                    onClick={() =>
-                                        router.push('/signup')
-                                    }
-                                    className="border-2 border-violet-800 text-buttons-primary py-2 px-4 rounded-md hover:text-violet-400 transition-all"
-                                >
-                                    Sign Up
-                                </Button>
+                                <>
+                                    <Button
+                                        onClick={() =>
+                                            router.push('/auth')
+                                        }
+                                        className="border-2 border-violet-800 text-buttons-primary py-2 px-4 rounded-md hover:text-violet-400 transition-all"
+                                    >
+                                        Sign Up
+                                    </Button>
+                                    <Button
+                                        className={`transition-all duration-300 ${
+                                            isDarkMode
+                                                ? 'bg-violet-600 hover:bg-violet-500 text-white'
+                                                : 'bg-violet-600 hover:bg-violet-500 text-white'
+                                        } py-2 px-4 rounded-md`}
+                                    >
+                                        Start Free Trial
+                                    </Button>
+                                </>
                             )}
-                            <Button
-                                className={`transition-all duration-300 ${
-                                    isDarkMode
-                                        ? 'bg-violet-600 hover:bg-violet-500 text-white'
-                                        : 'bg-violet-600 hover:bg-violet-500 text-white'
-                                } py-2 px-4 rounded-md`}
-                            >
-                                Start Free Trial
-                            </Button>
                         </div>
 
                         {/* Mobile Menu Button */}

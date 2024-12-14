@@ -24,3 +24,23 @@ export const getGithubRepo = async (url) => {
         }
     }
 }
+
+export const getGithubUser = async (username) => {
+    try {
+        const response = await axios.get(`${githubUrl}/github/user/${username}`, {
+            withCredentials: true
+        })
+        if (!response) {
+            console.error('No Resposne Found...')
+        }
+
+        // console.log(response.data);
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        return {
+            success: false,
+            message: 'Internal Client Error.'
+        }
+    }
+};
