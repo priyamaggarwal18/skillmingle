@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const api = (import.meta.env?.API_URL || process?.env?.API_URL || 'http://localhost:4000') + '/api';
+const api = (import.meta.env?.API_URL || process?.env?.API_URL || 'http://localhost:4000') + '/api/auth';
 export const login = async (email, password) => {
     //   console.log(email,password);
     try {
-        const response = await axios.post(`${api}/auth/login`, {
+        const response = await axios.post(`${api}/login`, {
                 email,
                 password,
             }, {
@@ -62,10 +62,10 @@ export const register = async (fullName, email, password, role) => {
 
 export const logout = async () => {
     try {
-        const response = await axios.get(`${api}/auth/logout`, {
+        const response = await axios.get(`${api}/logout`, {
             withCredentials: true,
         });
-        console.log(response.data);
+        // console.log(response.data);
         if (!response) {
             console.log('No response');
             return {
@@ -85,7 +85,7 @@ export const logout = async () => {
 
 export const getCurrUser = async () => {
     try {
-        const response = await axios.get(`${api}/auth/profile`, {
+        const response = await axios.get(`${api}/profile`, {
             withCredentials: true,
         });
         if (!response) {

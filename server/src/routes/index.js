@@ -14,7 +14,6 @@ router.use('/api/project', projectRoutes);
 router.use('/api/task', taskRoutes);
 router.use('/api/resource', resourceRoutes);
 router.use('/api/admin', verifyToken, adminRoutes);
-
 router.use('/api/github', verifyToken, githubRoutes);
 
 export default router;

@@ -3,95 +3,93 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 html {
-  scroll-behavior: smooth;
-  
+    scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+    width: 8px; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000; /* Track color */
+    background: #000000; /* Track color */
 }
 
 ::-webkit-scrollbar-thumb {
-  background:  #7C3AED; /* Scrollbar handle color */
-  border-radius: 10px; /* Rounded corners for handle */
+    background: #7c3aed; /* Scrollbar handle color */
+    border-radius: 10px; /* Rounded corners for handle */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5B21B6; /* Darker handle on hover */
+    background: #5b21b6; /* Darker handle on hover */
 }
 
 /* Marquee left-to-right (rightward scroll) */
 @keyframes marquee-right {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(100%);
-  }
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
 
 /* Standard marquee left-to-right (leftward scroll) */
 @keyframes marquee-left {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 .animate-marquee {
-  animation: marquee-left var(--duration) linear infinite;
+    animation: marquee-left var(--duration) linear infinite;
 }
 
 /* Reverse marquee for right-to-left (rightward scroll) */
 @keyframes marquee-right {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(100%);
-  }
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
 
 .animate-marquee-reverse {
-  animation: marquee-right var(--duration) linear infinite;
+    animation: marquee-right var(--duration) linear infinite;
 }
 
 /* Vertical marquee */
 @keyframes marquee-vertical {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(-100%);
-  }
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(-100%);
+    }
 }
 
 .animate-marquee-vertical {
-  animation: marquee-vertical var(--duration) linear infinite;
+    animation: marquee-vertical var(--duration) linear infinite;
 }
-

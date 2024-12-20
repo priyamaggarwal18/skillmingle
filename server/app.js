@@ -1,10 +1,11 @@
+import env from "./src/config/ValidateEnv.js";
 import express from 'express';
 import cors from 'cors';
 import routes from './src/routes/index.js';
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: [env.FRONTEND_URL, 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true
 }));

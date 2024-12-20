@@ -35,7 +35,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { login, register } from '../../api/index';
+import { login, register } from '../../api/auth';
 
 export default function AuthPage() {
     const [activeTab, setActiveTab] = useState('signin');
@@ -101,6 +101,15 @@ export default function AuthPage() {
         }
     };
 
+    const handleGithubLogin = () => {
+        const clientID = process.env.CLITENT_ID; // Replace with your GitHub OAuth App Client ID
+        const redirectUri =
+            'http://localhost:3000/auth/github/callback';
+        const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientID}&redirect_uri=${redirectUri}&scope=user`;
+        window.location.href = authUrl; // Redirect user to GitHub's OAuth page
+    };
+
+
     return (
         <div className="min-h-screen bg-dark-purple-gradient bg-violet-500 flex items-center justify-center p-4">
             <motion.div
@@ -158,6 +167,13 @@ export default function AuthPage() {
                                     }
                                 >
                                     Sign Up
+                                </TabsTrigger>
+                                <TabsTrigger
+                                    value="github"
+                                    className="bg-gray-800 px-6 py-2 text-lg"
+                                    onClick={handleGithubLogin}
+                                >
+                                    GitHub
                                 </TabsTrigger>
                             </TabsList>
                             <AnimatePresence mode="wait">

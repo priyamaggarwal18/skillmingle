@@ -25,7 +25,7 @@ const register = async (req, res) => {
         });
         await user.save();
 
-        const token = generateToken(user);
+        const token = await generateToken(user);
 
         // Remove sensitive data
         const userProfile = user.getPublicProfile();
@@ -80,7 +80,7 @@ const login = async (req, res) => {
         }
 
         // Generate token
-        const token = generateToken(user);
+        const token = await generateToken(user);
 
         // Update last active
         user.lastActive = new Date();

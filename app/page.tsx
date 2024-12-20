@@ -31,6 +31,7 @@ const HomePage = () => {
             ) : (
                 <DotBackgroundDemo />
             )}
+            
         </div>
     );
 };
