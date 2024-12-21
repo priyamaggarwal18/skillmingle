@@ -77,18 +77,12 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="container mx-auto py-20 text-center">
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold gradient-title pb-6 flex flex-col">
+        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold pb-6 flex flex-col">
           Streamline Your Workflow <br />
           <span className="flex mx-auto gap-3 sm:gap-4 items-center">
-            with
-            <Image
-              src={"/logo2.png"}
-              alt="Zscrum Logo"
-              width={400}
-              height={80}
-              className="h-14 sm:h-24 w-auto object-contain"
-            />
+            with <span className="gradient-title">SkillMingle</span>
           </span>
+          
         </h1>
         <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
           Empower your team with our intuitive project management solution.
@@ -100,21 +94,21 @@ export default function Home() {
           </Button>
         </Link>
         <Link href="#features">
-          <Button size="lg" variant="outline">
+          <Button size="lg" variant="outline" className="bg-violet-800 hover:bg-violet-900">
             Learn More
           </Button>
         </Link>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="bg-gray-900 py-20 px-5">
+      <section id="features" className="py-20 px-5">
         <div className="container mx-auto">
-          <h3 className="text-3xl font-bold mb-12 text-center">Key Features</h3>
+          <h1 className="text-5xl font-bold mb-12 text-center text-violet-600">Key Features</h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="bg-gray-800">
                 <CardContent className="pt-6">
-                  <feature.icon className="h-12 w-12 mb-4 text-blue-300" />
+                  <feature.icon className="h-12 w-12 mb-4 text-violet-400" />
                   <h4 className="text-xl font-semibold mb-2">
                     {feature.title}
                   </h4>
@@ -129,7 +123,7 @@ export default function Home() {
       {/* Companies Carousel */}
       <section className="py-20">
         <div className="container mx-auto">
-          <h3 className="text-3xl font-bold mb-12 text-center">
+          <h3 className="text-5xl font-bold mb-12 text-violet-600 text-center">
             Trusted by Industry Leaders
           </h3>
           <CompanyCarousel />
@@ -137,9 +131,9 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-gray-900 py-20 px-5">
+      <section className="py-20 px-5">
         <div className="container mx-auto">
-          <h3 className="text-3xl font-bold mb-12 text-center">
+          <h3 className="text-5xl text-violet-600 font-bold mb-12 text-center">
             Frequently Asked Questions
           </h3>
           <Accordion type="single" collapsible className="w-full">
@@ -156,7 +150,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 text-center px-5">
         <div className="container mx-auto">
-          <h3 className="text-3xl font-bold mb-6">
+          <h3 className="text-5xl text-violet-600 font-bold mb-6">
             Ready to Transform Your Workflow?
           </h3>
           <p className="text-xl mb-12">
